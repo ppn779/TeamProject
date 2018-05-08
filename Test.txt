@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-Show me the money!!
-=======
-This is First Test
-And Second Test
->>>>>>> JKW
