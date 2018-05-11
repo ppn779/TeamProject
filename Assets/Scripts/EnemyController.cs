@@ -6,22 +6,37 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public enum MonsterState { idle, trace, attack, die };
+
+    public MonsterState monsterState = MonsterState.idle;
+
+
     public float lookRadius = 10f;
 
-    Transform target;
-    NavMeshAgent nvAgent;
+    private Transform monsterTr;
+    private Transform target;
+
+    EnemyHealth enemyHealth;
+
+    private NavMeshAgent nvAgent;
+
+    private Animator animator;
 
 
-    private bool isDie = false;
 
-    private int hp = 100;
-
+    public float traceDist = 10.0f;
+    public float attackDist = 2.0f;
 
     // Use this for initialization
     void Start()
     {
+        monsterTr = this.gameObject.GetComponent<Transform>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
+        enemyHealth = GetComponent<EnemyHealth>();
+
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
+        animator = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,7 +62,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 dir = (target.position - transform.position).normalized;
         Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 10f);
     }
 
 
