@@ -3,8 +3,18 @@ guid: a50b8b113e3f0eb40be9a78fbacb8e73
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Line08
-  externalObjects: {}
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: f47a6b755fe26aa4d94182e51e02e11f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
