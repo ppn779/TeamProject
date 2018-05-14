@@ -59,12 +59,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Camera\MainCameraMove.cs" />
     <Compile Include="Assets\Scripts\CharactersStatusMng.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Weapon\PickUp.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponStatus.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/20160708/Documents/Unity/GameProject/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
