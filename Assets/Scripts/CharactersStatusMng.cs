@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharactersStatusMng : MonoBehaviour {
-    private Player player;
+    //private Player player;
     private Enemy enemy;
     public Text enemyHP;
 
@@ -12,7 +12,7 @@ public class CharactersStatusMng : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        player = FindObjectOfType<Player>();
+        //player = FindObjectOfType<Player>();
         enemy = FindObjectOfType<Enemy>();
 	}
 	
@@ -20,7 +20,7 @@ public class CharactersStatusMng : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0)&&enemy.isPlayerNearby)
         {
-            eHP= enemy.beAttacked(player.Attack());
+            //eHP= enemy.beAttacked(player.Attack());
         }
 
         enemyHP.text = "EnemyHP = " + eHP;
