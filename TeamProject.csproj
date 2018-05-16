@@ -306,6 +306,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySpawnManager.cs" />
     <Compile Include="Assets\Scripts\HJS\ComboSystemMng.cs" />
     <Compile Include="Assets\Scripts\HJS\Player.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerAtkCtrl.cs" />
