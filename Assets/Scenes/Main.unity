@@ -645,13 +645,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0.5539899, y: 10, z: 4.4568176}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0, y: 10, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!1 &286936251
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +896,7 @@ Prefab:
     - target: {fileID: 65891099874499070, guid: b53db6432556e4b4e847f89ed6673ada,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b53db6432556e4b4e847f89ed6673ada, type: 2}
@@ -1035,7 +1035,7 @@ Prefab:
     - target: {fileID: 65889344595366718, guid: a205f6605640c6a4e9a7f861d5d58089,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a205f6605640c6a4e9a7f861d5d58089, type: 2}
@@ -1266,7 +1266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c76026ba2896a349aa8813f2db74a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   enemyHP: {fileID: 859072267}
+  eHP: 100
 --- !u!4 &757191212
 Transform:
   m_ObjectHideFlags: 0
@@ -1461,7 +1463,7 @@ Prefab:
     - target: {fileID: 65727513565361260, guid: ca81185ebed633d4bb3625e10be88137,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca81185ebed633d4bb3625e10be88137, type: 2}
@@ -1767,7 +1769,7 @@ Prefab:
     - target: {fileID: 65894114224942376, guid: 221404adeabb1ba40bd2ce0ecffeb43e,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 221404adeabb1ba40bd2ce0ecffeb43e, type: 2}
@@ -2318,7 +2320,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1614622120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1359413885ffbb546a547a5eed9757c5, type: 3}
+  m_Script: {fileID: 11500000, guid: e06615571b51bdc489fc4d616cf1e1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1643714980
@@ -2888,7 +2890,7 @@ Prefab:
     - target: {fileID: 65810122117692576, guid: 5ff125f308a890e41875ef6bdd5bc9d8,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ff125f308a890e41875ef6bdd5bc9d8, type: 2}

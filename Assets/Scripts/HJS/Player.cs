@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float HP = 100.0f;//체력 
-    bool die = false;//죽으면 true
+    private float HP = 100.0f;//체력 
+    private bool die = false;//죽으면 true
 
-    bool Die()
+    public bool Die()
     {
         if (HP <= 0)
             die = true;

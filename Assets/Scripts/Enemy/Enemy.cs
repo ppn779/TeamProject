@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-    int hp=100;
-    bool canBeAttacked;
+//실험용
 
-    public bool isPlayerNearby
-    {
-        get
-        {
-            return canBeAttacked;
-        }
-    }
+public class Enemy : MonoBehaviour {
+    private int hp=100;
 
     public int beAttacked(int damage)
     {
@@ -23,15 +16,7 @@ public class Enemy : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            canBeAttacked = true;
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            canBeAttacked = false;
-        }   
+        }
     }
 }

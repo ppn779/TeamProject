@@ -30,10 +30,6 @@ public class EnemyController : MonoBehaviour
     public GameObject playerObject;
     public bool shotFired = false;
 
-
-
-
-
     public static bool isPlayerAlive = true;
 
 

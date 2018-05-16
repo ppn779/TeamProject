@@ -17,6 +17,17 @@ public class Inventory : MonoBehaviour {
     {
          itemList.RemoveAt(num);
     }
+
+    public GameObject EquipItem(int num)
+    {
+        if (itemList[num])
+            return itemList[num];
+
+        else {
+            Debug.Log("장착 무기가 없음.");
+            return null; }
+    }
+
     public void HideItemNumber(int num) { itemList[num].SetActive(false); }
     public void ShowItemNumber(int num) { itemList[num].SetActive(true); }
 }

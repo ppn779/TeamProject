@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ComboSystemMng : MonoBehaviour {
-    public GameObject player = null;
-    //private Enemy[] Enemies = null;
+    private const float OFFSET_Y = 130f;                 // 플레이어와의 간격 Y
 
-    public GameObject Combo=null;
+    public GameObject player = null;
+    public GameObject Combo = null;
+
+    private Enemy[] Enemies = null;
     private Text ComboText=null;
 
     private int comboNum=0;
-
-    private const float OFFSET_Y = 130f;                 // 플레이어와의 간격 Y
                                                         // Use this for initialization
     void Start () {
         ComboText = Combo.GetComponent<Text>();

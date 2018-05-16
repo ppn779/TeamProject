@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerSpecialAtkCtrl : MonoBehaviour
 {
+    private const float MAX_GAGE = 200.0f;
+
     public GameObject specialAtkGageBar = null;
+
     private RectTransform specialAtkGageBarTr = null;
     private Image specialAtkGageBarImg = null;
-
-    private const float MAX_GAGE = 200.0f;
-    //색상 변화량, 최대치가 1이기 때문에 파워 최대치 만큼을 나눠서 설정
-    //private const float COLOR_STEP = 1f/MAX_GAGE;
-
     private float specialAtkGage = 0.0f;//필살기 게이지 수치
     private bool canSpecialAtk = false;
 
