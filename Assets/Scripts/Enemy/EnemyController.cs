@@ -6,39 +6,40 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public enum MonsterState { idle, trace, attack, die };
-
-    public MonsterState monsterState = MonsterState.idle;
-
     public float moveSpeed = 5f;
     public float lookRadius = 10f;
     public float rotSpeed = 10f;
     public float traceDist = 10.0f;
     public float attackDist = 2.0f;
+    public float shootRate = 1f;
+
+    public float stayTime = 0f;
+
+    public int hp = 10;
+    public bool isDeath = false;
+
+    //public bool shotFired = false;
+
+    public Vector3 startPos;
+    public Vector3 targetPos;
+
+    //public GameObject playerObject;
+    public static bool isPlayerAlive = true;
+
+
 
     private Transform monsterTr;
     private Transform target;
 
     EnemyHealth enemyHealth;
 
-    private NavMeshAgent nvAgent;
+    [SerializeField] private NavMeshAgent nvAgent;
+    [SerializeField] private Animator animator;
 
-    private Animator animator;
-
-    public float shootRate = 0f;
     private float shootTimeStamp = 0f;
-    public GameObject playerObject;
-    public bool shotFired = false;
 
 
-
-
-
-    public static bool isPlayerAlive = true;
-
-
-    // Use this for initialization
-    void Start()
+    private void Awake()
     {
         monsterTr = this.gameObject.GetComponent<Transform>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -49,15 +50,22 @@ public class EnemyController : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        startPos = transform.position;
+        targetPos = startPos;
+        attackDist = nvAgent.stoppingDistance;
+        nvAgent.speed = moveSpeed;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerAlive)
+        if (!isDeath)
         {
-            Move();
+            EnemyAI();
         }
     }
-
 
     // 타겟 바라보기
     void LookAtPlayer()
@@ -67,22 +75,18 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * rotSpeed);
     }
 
-    void Attack()
+    void EnemyAI()
     {
-        if (!shotFired)
+        if (isPlayerAlive)
         {
-            if (Time.time > shootTimeStamp)
-            {
-
-                //playerObject.GetComponent<Player>().hp -= 10;
-                shotFired = true;
-
-                shootTimeStamp = Time.time + shootRate;
-            }
+            Move();
         }
         else
         {
-
+            if (Time.deltaTime > 3f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -90,31 +94,88 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
+        float speed = MoveCheck();
+
+        animator.SetFloat("speed", speed);
+
         if (distance <= lookRadius)
         {
             nvAgent.SetDestination(target.position);
+            LookAtPlayer();
 
-            if (distance <= nvAgent.stoppingDistance)
+            Debug.Log("Target DIST" + distance);
+            Debug.Log("ATK DIST" + attackDist);
+
+            if (distance <= attackDist)
             {
-                // Attack the target
-                LookAtPlayer();
+                Attack();
+            }
+            else
+            {
+
             }
         }
-        else if (distance > nvAgent.stoppingDistance)
-        {
-            Attack();
-        }
+
         else if (distance > lookRadius)
+        {
+            nvAgent.SetDestination(targetPos);
+            Patrolling();
+        }
+
+    }
+
+    void Attack()
+    {
+        shootTimeStamp += Time.deltaTime;
+
+        if (shootTimeStamp >= shootRate)
+        {
+            animator.SetTrigger("attack");
+            shootTimeStamp = 0f;
+        }
+    }
+
+    private float MoveCheck()
+    {
+        float aniSpeed;
+        aniSpeed = Vector3.Project(nvAgent.desiredVelocity, transform.forward).magnitude;
+
+        return aniSpeed;
+    }
+
+    void Patrolling()
+    {
+        float speed = MoveCheck();
+
+        if (speed <= 0f)
+        {
+            stayTime += Time.deltaTime;
+            if (stayTime > 3f)
+            {
+                Vector3 rePos = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+                targetPos = startPos + rePos;
+                nvAgent.SetDestination(targetPos);
+                stayTime = 0f;
+            }
+        }
+    }
+
+
+
+    void Run()
+    {
+        if (enemyHealth.currentHP <= 30)
         {
 
         }
     }
 
-    void Run()
+    private void OnTriggerEnter(Collider other)
     {
-        if(enemyHealth.currentHP <= 30)
+        //hp -= damage;
+        if (hp <= 0)
         {
-
+            animator.SetTrigger("die");
         }
     }
 
