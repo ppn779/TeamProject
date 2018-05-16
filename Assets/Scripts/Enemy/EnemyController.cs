@@ -6,19 +6,11 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-<<<<<<< HEAD
-=======
-    public enum MonsterState { idle, trace, attack, die };
-
-    public MonsterState monsterState = MonsterState.idle;
-
->>>>>>> master
     public float moveSpeed = 5f;
     public float lookRadius = 10f;
     public float rotSpeed = 10f;
     public float traceDist = 10.0f;
     public float attackDist = 2.0f;
-<<<<<<< HEAD
     public float shootRate = 1f;
 
     public float stayTime = 0f;
@@ -48,32 +40,6 @@ public class EnemyController : MonoBehaviour
 
 
     private void Awake()
-=======
-
-    private Transform monsterTr;
-    private Transform target;
-
-    EnemyHealth enemyHealth;
-
-    private NavMeshAgent nvAgent;
-
-    private Animator animator;
-
-    public float shootRate = 0f;
-    private float shootTimeStamp = 0f;
-    public GameObject playerObject;
-    public bool shotFired = false;
-
-
-
-
-
-    public static bool isPlayerAlive = true;
-
-
-    // Use this for initialization
-    void Start()
->>>>>>> master
     {
         monsterTr = this.gameObject.GetComponent<Transform>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -84,7 +50,6 @@ public class EnemyController : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
     }
 
-<<<<<<< HEAD
     void Start()
     {
         startPos = transform.position;
@@ -102,18 +67,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-=======
-    // Update is called once per frame
-    void Update()
-    {
-        if (isPlayerAlive)
-        {
-            Move();
-        }
-    }
-
-
->>>>>>> master
     // 타겟 바라보기
     void LookAtPlayer()
     {
@@ -122,7 +75,6 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * rotSpeed);
     }
 
-<<<<<<< HEAD
     void EnemyAI()
     {
         if (isPlayerAlive)
@@ -135,24 +87,6 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-=======
-    void Attack()
-    {
-        if (!shotFired)
-        {
-            if (Time.time > shootTimeStamp)
-            {
-
-                //playerObject.GetComponent<Player>().hp -= 10;
-                shotFired = true;
-
-                shootTimeStamp = Time.time + shootRate;
-            }
-        }
-        else
-        {
-
->>>>>>> master
         }
     }
 
@@ -160,7 +94,6 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-<<<<<<< HEAD
         float speed = MoveCheck();
 
         animator.SetFloat("speed", speed);
@@ -232,37 +165,11 @@ public class EnemyController : MonoBehaviour
     void Run()
     {
         if (enemyHealth.currentHP <= 30)
-=======
-        if (distance <= lookRadius)
-        {
-            nvAgent.SetDestination(target.position);
-
-            if (distance <= nvAgent.stoppingDistance)
-            {
-                // Attack the target
-                LookAtPlayer();
-            }
-        }
-        else if (distance > nvAgent.stoppingDistance)
-        {
-            Attack();
-        }
-        else if (distance > lookRadius)
         {
 
         }
     }
 
-    void Run()
-    {
-        if(enemyHealth.currentHP <= 30)
->>>>>>> master
-        {
-
-        }
-    }
-
-<<<<<<< HEAD
     private void OnTriggerEnter(Collider other)
     {
         //hp -= damage;
@@ -272,8 +179,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-=======
->>>>>>> master
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -290,13 +290,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEditor.StandardEvents.csproj">
-      <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
-      <Name>UnityEditor.StandardEvents</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
       <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
       <Name>Unity.PackageManagerUI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.StandardEvents.csproj">
+      <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
+      <Name>UnityEditor.StandardEvents</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -305,14 +305,12 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawnManager.cs" />
     <Compile Include="Assets\Scripts\HJS\ComboSystemMng.cs" />
     <Compile Include="Assets\Scripts\HJS\Player.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerAtkCtrl.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerMovementCtrl.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerSpecialAtkCtrl.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\PickUp.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponStatus.cs" />

@@ -70,10 +70,6 @@
     <Compile Include="Assets\Scripts\HJS\PlayerAtkCtrl.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerMovementCtrl.cs" />
     <Compile Include="Assets\Scripts\HJS\PlayerSpecialAtkCtrl.cs" />
-<<<<<<< HEAD
-=======
-    <Compile Include="Assets\Scripts\Inventory\Equipment.cs" />
->>>>>>> master
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\PickUp.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponStatus.cs" />
