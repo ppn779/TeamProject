@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
     int hp=100;
     bool canBeAttacked;
 
+    float speed;
+
     public bool isPlayerNearby
     {
         get
